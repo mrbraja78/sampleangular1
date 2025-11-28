@@ -1,0 +1,61 @@
+<!-- <p>first-component works!</p> -->
+<h3 class="title">first-component works!</h3>
+<br>
+<button (click)="Increase()">Increase</button>
+<br>
+<div>
+    <p>
+        counter={{_math.counter}}
+    </p>
+</div>
+
+
+<h4 class="title">TemplateDrivenForm</h4>
+ <!-- T1  step2- Get the form submitted values->
+ <!-- <form (ngSubmit)="onsubmit(userForm)" #userForm="ngForm"> -->
+    <!-- T2  step1- Its for initialization values -->
+    <form (ngSubmit)="onsubmit()" #userForm="ngForm">
+
+    <div class="form-group">
+      <label for="exampleInputEmail">Email</label>
+      <input type="text" class="form-control" id="email" name="email" 
+      aria-describedby="emailHelp" placeholder="Enter email" ngModel required email #emailTest="ngModel">
+      <span class="help-block" *ngIf="!emailTest.valid && emailTest.touched">enter valid email</span>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel required>
+    </div>
+    
+   
+    <div class="form-group" ngModelGroup="address">
+        <div class="form-group">
+        <label for="country">country</label>
+        <input style="background-color:greenyellow ;" type="text" class="form-control" id="country" name="country" placeholder="country" [ngModel]="'Hello Default value'" required>
+      </div>
+
+      <div class="form-group">
+        <label for="city">city</label>
+        <input type="text" class="form-control" id="city" name="city" placeholder="city" ngModel required>
+      </div>
+    </div>
+    
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="setDefaultValue()" >Setvalue</button>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info" [disabled]="!userForm.valid">Submit</button>
+    </div>  
+       
+     <div class="row">
+        <div class="row col-sm-12">
+            <pre>value:{{userForm.value | json}}</pre>
+            <pre>valid:{{userForm.valid | json}}</pre>
+            <pre>touched:{{userForm.touched | json}}</pre>
+            <pre>dirty:{{userForm.dirty | json}}</pre>
+            <pre>submitted:{{userForm.submitted | json}}</pre>
+        </div>
+    </div> 
+  </form>

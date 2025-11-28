@@ -1,0 +1,58 @@
+
+<h2>Parent Component</h2>
+
+<!--step 7(c-p)-->
+<p style="background-color:rgb(172, 137, 73);">random number from child component {{myrandomNumber|| 'not yet generate'}}</p>
+
+
+<button type="button" class="btn btn-primary">Apple</button>
+<br>
+<!--Angular Routing Example 
+<div>
+<a [routerLink] = "['/studentLink']" >Student</a> <br/>
+<a [routerLink] = "['/studentdetailsLink']" >student details</a>
+</div>-->
+
+
+
+
+<ul class="nav nav-tabs">
+  <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink = "['/studentLink']" >Student</a> <br/>
+  </li>
+  <li class="nav-item" routerLinkActive="active"> 
+    <a routerLink = "['/studentdetailsLink']" >student details</a>
+  </li>
+</ul>
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col p-3 bg-primary text-white columnPan"><app-first-component></app-first-component></div>
+
+<!--the below example shows that selector as a attribute. refer first-component.component.ts
+      <div class="col p-3 bg-primary text-white">   
+        <div app-first-component></div>
+    </div>-->
+
+    <!--the below example shows that selector as a class
+      <div class="col p-3 bg-primary text-white">   
+        <div class='app-first-component'></div>
+    </div>-->
+
+     
+      <div class="col p-3 bg-primary text-white columnPan"><app-second-component></app-second-component></div>
+      
+
+      <!--step 4(p-c)-->
+      <div class="col p-3 bg-primary text-white columnPan"><app-third-component [subjectChild]="subjectParent" ></app-third-component></div>
+
+      <!--step 4(c-p)-->
+      <div class="col p-3 bg-primary text-white columnPan"><app-third-component  (numberGenerated1)= "onNumberGenerated($event)"></app-third-component></div>
+
+    </div>
+  </div>
+  

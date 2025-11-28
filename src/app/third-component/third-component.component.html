@@ -1,0 +1,47 @@
+<!-- <p>third-component works!</p> -->
+<h3 class="title">third-component works!</h3>
+<!-- services -->
+<br>
+<div>
+    <p>
+        counter={{_math.counter}}
+    </p>
+</div>
+
+
+<br>
+<button (click)="Increase2()">Increase</button>
+<br>
+<div>
+    <p>
+        counter={{_math.counter}}
+    </p>
+</div>
+
+<table>
+<!---Step 3(p-c)-->
+<tbody style="background-color: rgb(224, 13, 13);">
+    <tr *ngFor='let subject of subjectChild'>
+        <td>{{subject.id}}</td>
+        <td>{{subject.name}}</td>
+    </tr>
+</tbody>
+</table>
+
+<!---Step 2(c-p)-->
+<div>
+   
+    <button  class="btn btn-warning" (click)="generateNumber()">child to parent</button>
+</div>
+
+{{'rajathiraja' | uppercase }}
+
+<!---parameterize pipe sample-->
+
+{{122 | customizepipe}}
+<br>
+
+
+
+{{'rajathiraja' | customisepipe2 : 5 }} 
+

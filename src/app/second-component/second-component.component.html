@@ -1,0 +1,150 @@
+<!-- <p>second-component works!</p> -->
+<h3 class="title">second-component works!</h3>
+
+<!-- services -->
+<br>
+<div>
+    <p>
+        counter={{_math.counter}}
+    </p>
+</div>
+
+
+<div>
+    <!-- interpolation -->
+    <p>BookID : {{bookid}}</p>
+    <p>{{'Library'}} BookName : {{bookname}}</p>
+    <p>BookAuthor : {{bookauthor}}</p>
+    <p>BookStatus : {{bookstatus}}</p>
+</div>
+
+<!-- property binding  and event binding-->
+<div>
+    <button class="btn btun-success" [disabled]="btnToggle"  [autofocus]="btnAutoFocus"  [value]="btnValue" (click)="onToggleMethod()">Toggle</button>
+</div>
+<!-- 2 way binding->
+<div>
+    <br><input type="text" class="form-control" [(ngModel)]="bookname"><br/>
+</div>
+
+<!--<div *ngIf="isValid">
+    <b>The Data is valid.</b>
+ </div>  
+ <div *ngIf="!isValid">
+    <b>The Data is invalid.</b>
+ </div> -->
+
+
+
+ <!-- <div>
+    <input type="radio" name="rb" (click)= "ChangeData(true)" checked > Valid
+    <input type="radio" name="rb" (click)= "ChangeData(false)"> Invalid
+  </div>
+  <div *ngIf="isValid else elseblock">
+     <b>The Data is valid.</b>
+  </div>  
+  <ng-template #elseblock>
+    <div >
+        <b>The Data is invalid.</b>
+     </div> 
+  </ng-template>-->
+
+  <div>
+    <input type="radio" name="rb" (click)= "ChangeData(true)" checked > Valid
+    <input type="radio" name="rb" (click)= "ChangeData(false)"> Invalid
+  </div>
+  <div *ngIf="isValid then thenblock else elseblock"> </div>
+  <ng-template #thenblock>
+    <div>
+    <b>The is Then Block</b>
+   </div>  
+  </ng-template>
+ 
+  <ng-template #elseblock>
+    <div >
+        <b>The is Else Block</b>
+     </div> 
+  </ng-template>
+
+  <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Branch</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Index</th>
+            <th>IsFirst</th>
+            <th>IsLast</th>
+            <th>IsEven</th>
+            <th>IsOdd</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let student of students;let i=index;let isFirst = first; let isLast = last;let isEven = even; let isOdd = odd'>
+            <td>{{student.ID}}</td>
+            <td>{{student.FirstName}}</td>
+            <td>{{student.LastName}}</td>
+            <td>{{student.Branch}}</td>
+            <td>{{student.DOB}}</td>
+            <td>{{student.Gender}}</td>
+            <td>{{i}}</td>
+            <td>{{isFirst}}</td>
+            <td>{{isLast}}</td>
+            <td>{{isEven}}</td>
+            <td>{{isOdd}}</td>
+        </tr>
+        <tr *ngIf="!students || students.length==0">
+            <td colspan="7">
+                No Students to display
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Select Country</h2>
+
+<select (change)="SetDropDownValue($event)">
+  <option value="">Select</option>
+  <option value="In">In</option>
+  <option value="US">US</option>
+  <option value="UK">UK</option>
+</select>
+
+<h2>You Have Selected</h2>
+
+<div [ngSwitch] = 'dropDownValue'>
+  <h3 *ngSwitchCase="'In'">India</h3>
+  <h3 *ngSwitchCase="'US'">United State</h3>
+  <h3 *ngSwitchCase="'UK'">United Kingdom</h3>
+  <h3 *ngSwitchDefault="">You have not selected any country</h3>
+</div>
+
+<div>
+    <button [ngStyle]="{'color':'red',  'font-weight': 'bold', 'font-size.px':20}">Click Me </button>
+  </div>
+  <div>
+    <button [ngStyle]="AddButtonCSSStyles()">Click Me </button>
+  </div>
+
+  <div *ngFor='let student of students'>
+    <span [ngStyle] ="{'background-color':student.Gender === 'Male' ? 'red' : 'green'}">Name : {{student.Name}}, Gender: {{student.Gender}}, Branch: {{student.Branch}}</span>       
+ </div>
+
+ <h3 [ngClass]="'one'">
+    Angular ngClass with "one"
+</h3>
+
+<h3 [ngClass]="'one four'">
+    Angular ngClass with 'one four'
+</h3>
+
+<h3 [ngClass]="['three', 'four', 'five']">
+    Angular ngClass with 'three', 'four', 'five'
+</h3>
+
+<h3 [ngClass]="{'one':true, 'two':false, 'three':true}">
+    Angular ngClass with 'one':true, 'two':false, 'three':true
+</h3>

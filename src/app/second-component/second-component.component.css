@@ -1,0 +1,30 @@
+table {
+    color: rgb(216, 19, 33);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid #369;
+    padding:5px;
+}
+th{
+    border: 1px solid #369;
+    padding:5px;
+}
+
+.one{
+    color: red;
+}
+.two{
+    font-size: 30px;
+}
+.three{
+    font-weight: bold;
+}
+.four{
+    font-style: italic;
+}
+.five{
+    color: green;
+}
